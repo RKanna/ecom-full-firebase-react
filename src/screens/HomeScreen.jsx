@@ -29,6 +29,7 @@ const HomeScreen = () => {
     <>
       <div className="fix-homescreen">
         {/* Here, key={forceRerender} update every time when i click go back from detailproduct page so it will force reRendering it will fix  */}
+
         {isHomeRoute && !searchTerm && (
           <Slider key={forceRerender} cards={cards} />
         )}
@@ -43,7 +44,6 @@ const HomeScreen = () => {
             card.sliderValue === "false" ? (
               <div className="column" key={card.itemId}>
                 <Product card={card} />
-                {/* <Product card={card} key={card.itemId} /> */}
               </div>
             ) : null
           )}

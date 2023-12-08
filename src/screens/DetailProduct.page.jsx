@@ -33,7 +33,6 @@ const DetailProductPage = () => {
   const handleGoBack = () => {
     navigate(-1);
     //for force rerendering of homescreen because fixing the slider disappearance
-    setForceRerender((prev) => !prev);
   };
 
   return (
