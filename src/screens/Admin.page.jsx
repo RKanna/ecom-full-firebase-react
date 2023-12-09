@@ -3,11 +3,13 @@ import { v4 as uuidv4 } from "uuid";
 import { useUser } from "../context/UserContext";
 import { collection, addDoc } from "firebase/firestore/lite";
 import { appDB } from "../utils/firestore.js";
+import "../css/form.css";
 
 const Admin = () => {
   const { generateUUID, setGenerateUUID, generateUniqueID } = useUser();
 
-  const { InventoryList, updateInventoryList } = useUser();
+  const { InventoryList, setInventoryList, updateInventoryList, cards } =
+    useUser();
 
   const handleChange = (e) => {
     updateInventoryList({
@@ -52,6 +54,20 @@ const Admin = () => {
       console.log(res);
       if (res) {
         alert("Data exported to Firestore");
+        setInventoryList({
+          itemId: "",
+          name: "",
+          image: "",
+          description: "",
+          brand: "",
+          category: "",
+          price: "",
+          countInStock: "",
+          rating: "",
+          totalReviews: "",
+          sliderValue: "",
+          discount: "",
+        });
       }
     } catch (err) {
       alert("Data not exported to Firestore");
@@ -71,98 +87,124 @@ const Admin = () => {
   return (
     <section className="admin">
       <h1>Welcome to Store Inventory</h1>
-      <h2>Enter Product Listing Details</h2>
+      <h2>Add products Form</h2>
       <form className="inventory-details" onSubmit={saveChange}>
-        <label htmlFor="itemId"></label>
-        <input
-          type="text"
-          id="itemId"
-          value={generateUUID}
-          onChange={((e) => setGenerateUUID(e.target.value), handleChange)}
-          placeholder="Random ID"
-        />
-        <button
-          type="button"
-          className="gen-id"
-          onClick={async (e) => {
-            const newUUID = await generateUniqueID(e);
-            handleItemIdChange(newUUID);
-          }}
-        >
-          Generate Unique ID
-        </button>
-        <label htmlFor="name">Name</label>
-        <input
-          type="text"
-          id="name"
-          value={InventoryList.name}
-          onChange={handleChange}
-          placeholder="name"
-        />
-        <label htmlFor="image">Image URL</label>
-        <input
-          type="text"
-          id="image"
-          value={InventoryList.image}
-          onChange={handleChange}
-          placeholder="imageURL"
-        />
-        <label htmlFor="description">Description</label>
-        <input
-          type="text"
-          id="description"
-          value={InventoryList.description}
-          onChange={handleChange}
-          placeholder="Description"
-        />
-        <label htmlFor="brand">Brand</label>
-        <input
-          type="text"
-          id="brand"
-          value={InventoryList.brand}
-          onChange={handleChange}
-          placeholder="Brand"
-        />
-        <label htmlFor="category">Category</label>
-        <input
-          type="text"
-          id="category"
-          value={InventoryList.category}
-          onChange={handleChange}
-          placeholder="Category"
-        />
-        <label htmlFor="price">Price</label>
-        <input
-          type="number"
-          id="price"
-          value={InventoryList.price}
-          onChange={handleChange}
-          placeholder="Price"
-        />
-        <label htmlFor="countInStock">Count In Stock</label>
-        <input
-          type="number"
-          id="countInStock"
-          value={InventoryList.countInStock}
-          onChange={handleChange}
-          placeholder="Count In Stock"
-        />
-        <label htmlFor="rating">Rating</label>
-        <input
-          type="number"
-          id="rating"
-          value={InventoryList.rating}
-          onChange={handleChange}
-          placeholder="Rating"
-        />
-        <label htmlFor="reviews">Reviews</label>
-        <input
-          type="number"
-          id="totalReviews"
-          value={InventoryList.totalReviews}
-          onChange={handleChange}
-          placeholder="Total Reviews"
-        />
+        <div className="detail-row-one">
+          <div className="inventory-row">
+            <label htmlFor="itemId">ID</label>
+            <input
+              type="text"
+              id="itemId"
+              value={generateUUID}
+              onChange={((e) => setGenerateUUID(e.target.value), handleChange)}
+              placeholder="Random ID"
+            />
+            <button
+              type="button"
+              className="gen-id"
+              onClick={async (e) => {
+                const newUUID = await generateUniqueID(e);
+                handleItemIdChange(newUUID);
+              }}
+            >
+              Generate Unique ID
+            </button>
+          </div>
+          <div className="inventory-row">
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              value={InventoryList.name}
+              onChange={handleChange}
+              placeholder="name"
+            />
+          </div>
+          <div className="inventory-row">
+            <label htmlFor="image">Image URL</label>
+            <input
+              type="text"
+              id="image"
+              value={InventoryList.image}
+              onChange={handleChange}
+              placeholder="imageURL"
+            />
+          </div>
+        </div>
+        <div className="detail-row-two">
+          <div className="inventory-row">
+            <label htmlFor="description">Description</label>
+            <input
+              type="text"
+              id="description"
+              value={InventoryList.description}
+              onChange={handleChange}
+              placeholder="Description"
+            />
+          </div>
+          <div className="inventory-row">
+            <label htmlFor="brand">Brand</label>
+            <input
+              type="text"
+              id="brand"
+              value={InventoryList.brand}
+              onChange={handleChange}
+              placeholder="Brand"
+            />
+          </div>
+          <div className="inventory-row">
+            <label htmlFor="category">Category</label>
+            <input
+              type="text"
+              id="category"
+              value={InventoryList.category}
+              onChange={handleChange}
+              placeholder="Category"
+            />
+          </div>
+        </div>
+
+        <div className="inventory-row">
+          <label htmlFor="price">Price</label>
+          <input
+            type="number"
+            id="price"
+            value={InventoryList.price}
+            onChange={handleChange}
+            placeholder="Price"
+          />
+        </div>
+        <div className="inventory-row">
+          <label htmlFor="countInStock">Count In Stock</label>
+          <input
+            type="number"
+            id="countInStock"
+            value={InventoryList.countInStock}
+            onChange={handleChange}
+            placeholder="Count In Stock"
+          />
+        </div>
+        <div className="inventory-row">
+          <label htmlFor="rating">Rating</label>
+          <input
+            type="number"
+            id="rating"
+            value={InventoryList.rating}
+            onChange={handleChange}
+            placeholder="Rating"
+          />
+        </div>
+        <div className="inventory-row">
+          <label htmlFor="reviews">Reviews</label>
+          <input
+            type="number"
+            id="totalReviews"
+            value={InventoryList.totalReviews}
+            onChange={handleChange}
+            placeholder="Total Reviews"
+          />
+        </div>
+
         <div className="radio">
           <label htmlFor="radio-for">sliderValue</label>
           <input
@@ -184,18 +226,22 @@ const Admin = () => {
           />
           False
         </div>
-        <label htmlFor="discount">Discount</label>
-        <input
-          type="text"
-          id="discount"
-          value={InventoryList.discount}
-          onChange={handleChange}
-          placeholder="discount"
-        />
+        <div className="inventory-row">
+          <label htmlFor="discount">Discount</label>
+          <input
+            type="text"
+            id="discount"
+            value={InventoryList.discount}
+            onChange={handleChange}
+            placeholder="discount"
+          />
+        </div>
+
         <button type="submit" className="add-db">
           Add To DB
         </button>
       </form>
+      <h1>Current Product Count: {cards.length}</h1>
     </section>
   );
 };

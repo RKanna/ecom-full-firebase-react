@@ -207,6 +207,8 @@ export const UserProvider = ({ children }) => {
 
   //From Firestore DB to getting Products data
 
+  //for temporary test
+
   return (
     <UserContext.Provider
       value={{

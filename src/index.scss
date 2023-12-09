@@ -875,40 +875,7 @@ h1 {
 .hide-main {
   display: none;
 }
-.admin {
-  min-width: 100%;
-  min-height: calc(100vh - 6rem);
-  margin-top: 5rem;
-}
-.inventory-details {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-}
-.inventory-details .gen-id {
-  width: 25%;
-  height: 2rem;
-}
-.inventory-details .add-db {
-  width: 25%;
-  height: 2rem;
-}
-.inventory-details input {
-  width: 50%;
-  height: 2rem;
-}
-.radio {
-  display: flex;
-  gap: 2rem;
-}
-.test-main {
-  min-width: 100%;
-  min-height: calc(100vh - 6rem);
-  margin-top: 10rem;
-}
+
 @media screen and (max-width: 768px) {
   .mainRow {
     flex-direction: column;

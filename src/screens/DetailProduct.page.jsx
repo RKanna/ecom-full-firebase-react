@@ -17,8 +17,6 @@ const DetailProductPage = () => {
     clearCart,
     searchTerm,
     filteredProducts,
-    setFilteredProducts,
-    setForceRerender,
     cards,
   } = useUser();
   const { itemId: productId } = useParams();

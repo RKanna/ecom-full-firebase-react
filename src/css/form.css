@@ -1,0 +1,98 @@
+.admin {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 5rem;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-row-one,
+.detail-row-two {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.inventory-row {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  box-sizing: border-box;
+  border-radius: 0.3rem;
+  border: 1px solid rgb(180, 179, 179);
+}
+
+.gen-id {
+  margin-top: 5px;
+}
+
+.add-db {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-db:hover {
+  background-color: #45a049;
+}
+
+.radio {
+  margin-bottom: 15px;
+}
+
+/* Optional: Add more styling for radio buttons */
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+/* Optional: Style for error messages or alerts */
+.alert {
+  background-color: #f44336;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+  text-align: center;
+}
+/* ... Previous CSS ... */
+
+.radio {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+/* Optional: Add more styling for radio buttons */
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+/* Optional: Style for error messages or alerts */
+.alert {
+  background-color: #f44336;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+  text-align: center;
+}

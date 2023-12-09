@@ -23,6 +23,7 @@ import Payment from "./screens/Payment.page.jsx";
 import FilteredCategory from "./screens/FilteredCategory.page.jsx";
 import CustomPageNotFound from "./components/CustomPageNotFound.jsx";
 import Admin from "./screens/Admin.page.jsx";
+import PrivateAdmin from "./components/PrivateAdmin.jsx";
 // import TestComponent from "./screens/TestComponent.jsx";
 
 const router = createBrowserRouter(
@@ -42,7 +43,10 @@ const router = createBrowserRouter(
       </Route>
       {/* <Route path="" element={<AdminProtection />}>
       </Route> */}
-      <Route path="/admin" element={<Admin />} />
+      <Route path="" element={<PrivateAdmin />}>
+        <Route path="/admin" element={<Admin />} />
+      </Route>
+
       {/* <Route path="/test" element={<TestComponent />} /> */}
 
       <Route path="" element={<Protected />}>
