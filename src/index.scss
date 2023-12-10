@@ -107,6 +107,7 @@ h1 {
   justify-content: center;
   border-radius: 0.5rem;
   align-items: center;
+  background-image: url(../public/assets/background/card.jpg);
 }
 .card-body {
   display: flex;
@@ -202,12 +203,15 @@ h1 {
   padding: 2rem 6rem 2rem 6rem;
   border: 1px solid rgb(203, 202, 202);
   margin: 2rem;
-  margin-top: 7rem;
+  // margin-top: 7rem;
   border-radius: 0.5rem;
   border-bottom: 1px solid grey;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-top: 2px solid #ccc;
   box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  background-image: url(../public/assets/background/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .slides-main div {
 }
@@ -779,6 +783,11 @@ h1 {
   cursor: pointer;
   text-decoration: none;
   color: black;
+  background-image: url(../public/assets/background/card.jpg);
+}
+.filter-btn-container {
+  background-image: url(../public/assets/background/card.jpg);
+  background-position: center;
 }
 .cat-link {
   font-size: 1.2rem;
@@ -874,6 +883,23 @@ h1 {
 }
 .hide-main {
   display: none;
+}
+.loading-text {
+  text-align: center;
+  margin-top: 50vh;
+  margin-bottom: 50vh;
+}
+.banner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.banner-img {
+  margin-top: 6rem;
+  // width: 91rem;
+  width: 96%;
+  height: 40rem;
+  border-radius: 1rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -992,5 +1018,8 @@ h1 {
   .versatile-magnifier {
     top: -5%;
   }
+  .banner-img {
+    width: 87%;
+    height: 20rem;
+  }
 }
-//https://youtu.be/KL_yIf5uiJo

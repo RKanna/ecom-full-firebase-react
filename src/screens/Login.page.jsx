@@ -6,6 +6,8 @@ import {
 } from "./../utils/index.js";
 import { Link, useNavigate } from "react-router-dom";
 import { useUser } from "./../context/UserContext.jsx";
+import { collection, getDocs } from "firebase/firestore/lite";
+import { appDB } from "../utils/firestore.js";
 const Login = () => {
   const { formFields, setFormFields, setUser, logoutUser, userEmail } =
     useUser();
@@ -28,6 +30,7 @@ const Login = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     console.log("hit");
+
     if (email && password) {
       try {
         const { user } = await signInAuthUserWithEmailAndPassword(
@@ -48,6 +51,7 @@ const Login = () => {
           // navigate("/cart");
           console.log(user.email);
           console.log(user.displayName);
+
           if (user.email === "admin@kannan.com") {
             setUser(user.email, user.displayName);
             navigate("/admin");

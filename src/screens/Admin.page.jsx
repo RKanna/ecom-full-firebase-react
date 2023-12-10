@@ -76,14 +76,6 @@ const Admin = () => {
     }
   };
 
-  // useEffect(() => {
-  //   const storedInventoryList = localStorage.getItem("InventoryList");
-
-  //   if (storedInventoryList) {
-  //     updateInventoryList(JSON.parse(storedInventoryList));
-  //   }
-  // }, []);
-
   return (
     <section className="admin">
       <h1>Welcome to Store Inventory</h1>
@@ -242,6 +234,7 @@ const Admin = () => {
         </button>
       </form>
       <h1>Current Product Count: {cards.length}</h1>
+      
     </section>
   );
 };

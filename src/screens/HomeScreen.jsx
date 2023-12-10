@@ -25,10 +25,18 @@ const HomeScreen = () => {
     }
   }, [searchTerm]);
   console.log(filteredProducts);
+
   return (
     <>
       <div className="fix-homescreen">
         {/* Here, key={forceRerender} update every time when i click go back from detailproduct page so it will force reRendering it will fix  */}
+        <div className="banner-container">
+          <img
+            className="banner-img"
+            src="/public/assets/background/back.jpg"
+            alt=""
+          />
+        </div>
 
         {isHomeRoute && !searchTerm && (
           <Slider key={forceRerender} cards={cards} />
@@ -40,7 +48,7 @@ const HomeScreen = () => {
         )}
 
         <section className="row">
-          {filteredProducts.map((card) =>
+          {filteredProducts.slice(0, 12).map((card) =>
             card.sliderValue === "false" ? (
               <div className="column" key={card.itemId}>
                 <Product card={card} />

@@ -5,32 +5,32 @@
   margin-top: 5rem;
 }
 
-h1,
+.admin h1,
 h2 {
   text-align: center;
 }
 
-form {
+.admin form {
   display: flex;
   flex-direction: column;
 }
 
-.detail-row-one,
+.admin .detail-row-one,
 .detail-row-two {
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
 }
 
-.inventory-row {
+.admin .inventory-row {
   margin-bottom: 15px;
 }
 
-label {
+.admin label {
   font-weight: bold;
 }
 
-input {
+.admin input {
   width: 100%;
   padding: 8px;
   margin-top: 5px;
@@ -44,8 +44,8 @@ input {
 }
 
 .add-db {
-  background-color: #4caf50;
-  color: white;
+  background-color: rgb(27, 27, 27)
+  color: grey;
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
@@ -53,7 +53,8 @@ input {
 }
 
 .add-db:hover {
-  background-color: #45a049;
+  background-color: rgb(32, 32, 32);
+  color: white;
 }
 
 .radio {
@@ -95,4 +96,18 @@ input[type="radio"] {
   border-radius: 5px;
   margin-top: 10px;
   text-align: center;
+}
+.admin button {
+  background-color: rgb(64, 63, 63);
+}
+.admin button:hover {
+  cursor: pointer;
+}
+.gen-id {
+  border-radius: 0.3rem;
+  padding: 0.3rem;
+  background-color: gray;
+}
+.gen-id:hover {
+  color: white;
 }

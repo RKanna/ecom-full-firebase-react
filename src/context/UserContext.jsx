@@ -24,6 +24,7 @@ export const UserProvider = ({ children }) => {
   //db getting from firestore
 
   const [cards, setCards] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchFromFireStoreDB = async () => {
     const snapShotforCapture = await getDocs(collection(appDB, "Products"));
@@ -36,9 +37,16 @@ export const UserProvider = ({ children }) => {
 
   useEffect(() => {
     async function fetchData() {
-      const mainData = await fetchFromFireStoreDB();
-      setCards(mainData);
+      try {
+        const mainData = await fetchFromFireStoreDB();
+        setCards(mainData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setIsLoading(false);
+      }
     }
+
     fetchData();
   }, []);
 
@@ -207,8 +215,6 @@ export const UserProvider = ({ children }) => {
 
   //From Firestore DB to getting Products data
 
-  //for temporary test
-
   return (
     <UserContext.Provider
       value={{
@@ -241,9 +247,11 @@ export const UserProvider = ({ children }) => {
         updateInventoryList,
         cards,
         setCards,
+        isLoading,
       }}
     >
-      {children}
+      {isLoading ? <p className="loading-text">Loading...</p> : children}
+      {/* {children} */}
     </UserContext.Provider>
   );
 };
