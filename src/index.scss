@@ -893,6 +893,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 .banner-img {
   margin-top: 6rem;
@@ -900,6 +901,17 @@ h1 {
   width: 96%;
   height: 40rem;
   border-radius: 1rem;
+}
+.banner-btn {
+  position: absolute;
+  top: 46%;
+  left: 38%;
+  background-color: #7e7f82;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  color: white;
+  text-decoration: none;
+  font-size: 2rem;
 }
 
 @media screen and (max-width: 768px) {

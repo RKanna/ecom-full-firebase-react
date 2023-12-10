@@ -3,7 +3,7 @@ import Slider from "../slider/Slider";
 import { useState, useEffect } from "react";
 import React from "react";
 import { useUser } from "../context/UserContext";
-import { ScrollRestoration } from "react-router-dom";
+import { ScrollRestoration, Link } from "react-router-dom";
 const HomeScreen = () => {
   const {
     searchTerm,
@@ -33,9 +33,12 @@ const HomeScreen = () => {
         <div className="banner-container">
           <img
             className="banner-img"
-            src="/public/assets/background/back.jpg"
+            src="./public/assets/background/back.jpg"
             alt=""
           />
+          <Link to="/Category" className="banner-btn">
+            Shop Now
+          </Link>
         </div>
 
         {isHomeRoute && !searchTerm && (
